@@ -1,0 +1,17 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql" // Apenas o provider fica aqui!
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Flashcard {
+  id          String   @id @default(cuid())
+  english     String   
+  portuguese  String   
+  context     String?  
+  createdAt   DateTime @default(now())
+}
